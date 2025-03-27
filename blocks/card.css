@@ -3,14 +3,18 @@
     width: 100%;
     object-fit: cover;
     display: block;
-    border-radius: 12px;
+    border-radius: 8px;
 }
 
 .card__title {
-    white-space: nowrap; /* Prevents the text from wrapping to a new line */
-    overflow: hidden;    /* Hides any text that overflows */
-    text-overflow: ellipsis; /* Adds ellipsis (…) when the text overflows */
-    max-width: 100%;      /* Adjust the max-width to fit your layout requirements */
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 120%;
+    color: #212121;
+    white-space: nowrap; 
+    overflow: hidden;    
+    text-overflow: ellipsis; 
+    max-width: 100%;      
 }
 
 .card__content {
@@ -25,14 +29,19 @@
     height: 20px;
     border: none;
     background-color: transparent;
-    opacity: 40%;
-    background-size: contain; 
-    background-position: center; 
-    background-repeat: no-repeat; 
-}
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.4; 
+    cursor: pointer; 
+    transition: opacity 0.3s ease; 
+  }
 
 @media screen and (max-width: 627px) {
     .card_image {
         height: 288px;
     }
+    .card-title {
+        max-width: 250px; 
+      }
 }
