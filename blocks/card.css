@@ -1,17 +1,16 @@
-h2 {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    max-width: 420px;
-}
-
 .card__image {
     height: 413px;
     width: 100%;
     object-fit: cover;
     display: block;
+    border-radius: 12px;
+}
+
+.card__title {
+    white-space: nowrap; /* Prevents the text from wrapping to a new line */
+    overflow: hidden;    /* Hides any text that overflows */
+    text-overflow: ellipsis; /* Adds ellipsis (…) when the text overflows */
+    max-width: 100%;      /* Adjust the max-width to fit your layout requirements */
 }
 
 .card__content {
@@ -27,6 +26,9 @@ h2 {
     border: none;
     background-color: transparent;
     opacity: 40%;
+    background-size: contain; 
+    background-position: center; 
+    background-repeat: no-repeat; 
 }
 
 @media screen and (max-width: 627px) {

@@ -10,6 +10,7 @@
     height: 190px;
     width: 190px;
     margin-right: 20px;
+    border-radius: 50%; 
 }
 
 .profile__column {
@@ -26,13 +27,17 @@
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical; 
+    -webkit-box-orient: vertical;
     max-width: 420px;
-
+    color: #212121; 
 }
 
 .profile__description {
     margin: 0;
+    font-size: 16px; 
+    font-weight: 500; 
+    line-height: 100%; 
+    color: #212121; 
     text-overflow: ellipsis;
     overflow: hidden;
     display: -webkit-box;
@@ -43,6 +48,19 @@
 
 .profile__edit-btn {
     margin-top: auto;
+    font-size: 16px; 
+    font-weight: 500; 
+    line-height: 100%; 
+    color: #212121; 
+    background-color: transparent; /* Adjust background if necessary */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover state */
+.profile__edit-btn:hover {
+    color: #ffffff; /* Change text color on hover */
+    background-color: #007BFF; /* Background color on hover */
+    border-color: #0056b3; /* Adjust border color on hover */
 }
 
 .profile__add-btn {
