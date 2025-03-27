@@ -52,15 +52,14 @@
     font-weight: 500; 
     line-height: 100%; 
     color: #212121; 
-    background-color: transparent; /* Adjust background if necessary */
-    transition: all 0.3s ease; /* Smooth transition for hover effect */
+    transition: all 0.3s ease; 
 }
 
 /* Hover state */
 .profile__edit-btn:hover {
-    color: #ffffff; /* Change text color on hover */
-    background-color: #007BFF; /* Background color on hover */
-    border-color: #0056b3; /* Adjust border color on hover */
+    color: #ffffff; 
+    background-color: #007BFF; 
+    border-color: #0056b3;
 }
 
 .profile__add-btn {
