@@ -58,3 +58,8 @@
 .modal__input::placeholder {
     color: #2121214d;
 }
+
+.modal__submit-btn {
+    max-width: 156px;
+    /*TODO - remove max-width in med media query */
+}
