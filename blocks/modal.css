@@ -63,3 +63,18 @@
     max-width: 156px;
     /*TODO - remove max-width in med media query */
 }
+
+
+/* for smooth transition */
+
+.modal {
+    visibility: hidden; /* Modal is hidden by default */
+    opacity: 0;
+    transition: visibility 0s 0.3s, opacity 0.3s ease-in-out; /* Transition for opacity and visibility */
+  }
+  
+  .modal_is-opened {
+    visibility: visible; /* Modal becomes visible */
+    opacity: 1;
+    transition: visibility 0s 0s, opacity 0.3s ease-in-out; /* Smooth transition when modal is opened */
+  }
