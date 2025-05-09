@@ -11,13 +11,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0;
+    transition: visibility 0s 0.3s, opacity 0.3s ease-in-out; /* Transition for opacity and visibility */
 }
 
 .modal_is-opened  {
     visibility: visible;
+    opacity: 1;
+    transition: visibility 0s 0s, opacity 0.3s ease-in-out; /* Smooth transition when modal is opened */
 }
 
+
+
 .modal__container {
+    box-sizing: border-box;
     max-width: 730px;
     width: 100%;
     border-radius: 8px;
@@ -26,13 +33,72 @@
     position: relative;
 }
 
+@media (max-width: 320px) {
+    .modal__container {
+        width: 320px;
+        height: 604px;
+        top: 1077px;
+        left: 3307px;
+        background-color: #fcf5e5;
+        padding: 32px 50px;
+        box-sizing: border-box;
+    }
+
+    .modal__input {
+        width: 100%;
+        margin-bottom: 16px;
+    }
+
+    .modal__submit-btn {
+        width: 100%;
+        margin-top: 16px;
+    }
+}
+
+
+@media (min-width: 1280px) {
+    .modal__container {
+        width: 730px;
+        height: auto;
+        background-color: #ffffff;
+        border-radius: 8px;
+        padding: 32px 50px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        box-sizing: border-box;
+    }
+
+    .modal__input {
+        width: 100%;
+        margin-bottom: 24px;
+    }
+
+    .modal__submit-btn {
+        width: 156px;
+        margin-top: 24px;
+    }
+}
+
+
+
 .modal__close-btn {
     position: absolute;
     top: 32px;
     right: 50px;
     width: 40px;
     height: 40px;
-    /*TODO - add close icon and make sure it looks right */
+    background: url('../images/close-icon.png') no-repeat center center; /* Add close icon */
+    background-size: contain; /* Ensure it scales nicely */
+    border: none; /* Optional: remove border for design consistency */
+    outline: none; /* Optional: remove default outline, if desired */
+    cursor: pointer;
+}
+
+.modal__close-btn:hover {
+    background: url('../images/hover-close-icon.png') no-repeat center center;
+    background-size: contain;
 }
 
 .modal__title {
@@ -51,8 +117,16 @@
 
 .modal__input {
     display: block;
+    width: 630px;
+    height: 52px;
+    padding: 16px 12px;
+    border: 1px solid rgba(33, 33, 33, 0.4); /* Exact Figma color with 40% opacity */
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    background-color: #fff;
+    box-sizing: border-box;
     margin: 8px 0 0;
-    /* TODO - border , padding */
 }
 
 .modal__input::placeholder {
@@ -60,21 +134,22 @@
 }
 
 .modal__submit-btn {
-    max-width: 156px;
-    /*TODO - remove max-width in med media query */
+    width: 156px; /* Fixed width as per Figma */
+    height: 52px; /* Height from Figma (hugging content) */
+    padding: 18px 32px; /* Padding from Figma */
+    background-color: #212121; /* Button color from Figma */
+    color: #ffffff; /* Text color is usually white on dark buttons */
+    border: none; /* Assuming no border as per design */
+    border-radius: 8px; /* Radius from Figma */
+    font-size: 16px; /* Standard font size, adjust if Figma specifies a different one */
+    font-family: 'Roboto', sans-serif; /* Use Figma's font if different */
+    cursor: pointer; /* Pointer cursor to indicate it's clickable */
+    box-sizing: border-box; /* Ensures padding doesn't affect the button's total width/height */
+    transition: background-color 0.3s ease; /* Optional smooth hover transition */
 }
 
 
-/* for smooth transition */
 
-.modal {
-    visibility: hidden; /* Modal is hidden by default */
-    opacity: 0;
-    transition: visibility 0s 0.3s, opacity 0.3s ease-in-out; /* Transition for opacity and visibility */
-  }
+
   
-  .modal_is-opened {
-    visibility: visible; /* Modal becomes visible */
-    opacity: 1;
-    transition: visibility 0s 0s, opacity 0.3s ease-in-out; /* Smooth transition when modal is opened */
-  }
+ 

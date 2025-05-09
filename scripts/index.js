@@ -36,14 +36,21 @@ newPostCloseBtn.addEventListener("click", function () {
   newPostModal.classList.remove("modal_is-opened");
 });
 
-function handleEditProfileSubmit(evt){
+function handleEditProfileSubmit(evt) {
     evt.preventDefault();
+
+    // Update the profile name
     profileNameEl.textContent = editProfileNameInput.value;
+
+    // Update the profile description
+    profileDescriptionEl.textContent = editProfileDescriptionInput.value;
+
+    // Close the modal after submitting
     editProfileModal.classList.remove("modal_is-opened");
-    
 }
 
-editProfileForm.addEventListener("submit", handleEditProfileSubmit)
+// Attach the event listener to the form
+editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 
 
 // for new post
