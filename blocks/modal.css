@@ -1,6 +1,7 @@
 /*TODO - add correct font styles for everything  */
 
 .modal {
+    padding: 0 10px;
     visibility: hidden;
     background-color: #00000080;
     position: fixed;
@@ -35,13 +36,7 @@
 
 @media (max-width: 320px) {
     .modal__container {
-        width: 320px;
-        height: 604px;
-        top: 1077px;
-        left: 3307px;
-        background-color: #fcf5e5;
-        padding: 32px 50px;
-        box-sizing: border-box;
+        padding: 22px 12px 12px;
     }
 
     .modal__input {
@@ -56,7 +51,7 @@
 }
 
 
-@media (min-width: 1280px) {
+
     .modal__container {
         width: 730px;
         height: auto;
@@ -79,17 +74,18 @@
         width: 156px;
         margin-top: 24px;
     }
-}
+
 
 
 
 .modal__close-btn {
+    opacity: 0.4;
     position: absolute;
     top: 32px;
     right: 50px;
     width: 40px;
     height: 40px;
-    background: url('../images/close-icon.png') no-repeat center center; /* Add close icon */
+    background: url('../images/close-icon.svg') no-repeat center center; /* Add close icon */
     background-size: contain; /* Ensure it scales nicely */
     border: none; /* Optional: remove border for design consistency */
     outline: none; /* Optional: remove default outline, if desired */
@@ -97,12 +93,19 @@
 }
 
 .modal__close-btn:hover {
-    background: url('../images/hover-close-icon.png') no-repeat center center;
+    background: url('../images/hover-close-icon.svg') no-repeat center center;
     background-size: contain;
+    opacity: 1; /* default state */
+    
 }
 
 .modal__title {
     margin: 0 0 32px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0;
 }
 
 .modal__form {
@@ -112,18 +115,19 @@
 
 .modal__label {
     margin: 0 0 32px;
+    color: #212121b2;
 }
 
 
 .modal__input {
     display: block;
-    width: 630px;
+    width: 100%;
     height: 52px;
     padding: 16px 12px;
     border: 1px solid rgba(33, 33, 33, 0.4); /* Exact Figma color with 40% opacity */
     border-radius: 8px;
     font-size: 16px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', Arial, sans-serif;
     background-color: #fff;
     box-sizing: border-box;
     margin: 8px 0 0;
@@ -134,7 +138,7 @@
 }
 
 .modal__submit-btn {
-    width: 156px; /* Fixed width as per Figma */
+    width: 156px; 
     height: 52px; /* Height from Figma (hugging content) */
     padding: 18px 32px; /* Padding from Figma */
     background-color: #212121; /* Button color from Figma */
@@ -142,10 +146,15 @@
     border: none; /* Assuming no border as per design */
     border-radius: 8px; /* Radius from Figma */
     font-size: 16px; /* Standard font size, adjust if Figma specifies a different one */
-    font-family: 'Roboto', sans-serif; /* Use Figma's font if different */
+    font-family: 'Poppins', Arial, sans-serif;
     cursor: pointer; /* Pointer cursor to indicate it's clickable */
     box-sizing: border-box; /* Ensures padding doesn't affect the button's total width/height */
     transition: background-color 0.3s ease; /* Optional smooth hover transition */
+}
+
+/* ✅ Hover state */
+.modal__submit-btn:hover {
+    background-color: #424242; /* Slightly lighter shade for hover effect */
 }
 
 
