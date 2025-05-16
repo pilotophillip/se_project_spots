@@ -57,6 +57,7 @@
     border: none; /* Optional: remove border for design consistency */
     outline: none; /* Optional: remove default outline, if desired */
     cursor: pointer;
+    background: url('../images/hover-close-icon.svg')
 }
 
 .modal__close-btn:hover {
