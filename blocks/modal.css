@@ -24,14 +24,13 @@
 
 
     .modal__container {
-        max-width: 100%;
+        position: relative;
+        width: 100%;
+        max-width: 730px;
         height: auto;
         background-color: #ffffff;
         border-radius: 8px;
         padding: 32px 50px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
         box-sizing: border-box;
     }
 
@@ -41,7 +40,19 @@
     }
 
     .modal__submit-btn {
-        width: 156px;
+         width: 156px;
+        height: 52px; /* Figma "Hug" height */
+        border-radius: 8px;
+        padding: 18px 32px;
+        gap: 8px; /* If using Flexbox with children inside */
+        background-color: #212121;
+        color: white; /* Assuming white text on dark button */
+        border: none; /* If the design does not show borders */
+        font-size: 16px; /* Optional: adjust based on Figma typography */
+        cursor: pointer; /* Standard for buttons */
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
     }
 
 
@@ -61,8 +72,6 @@
 }
 
 .modal__close-btn:hover {
-    background: url('../images/hover-close-icon.svg') no-repeat center center;
-    background-size: contain;
     opacity: 1; /* default state */
     
 }
@@ -115,7 +124,7 @@
 
 
 
-@media (max-width: 320px) {
+@media screen and (max-width: 480px) {
     .modal__container {
         padding: 22px 12px 12px;
     }
