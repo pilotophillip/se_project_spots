@@ -121,9 +121,12 @@ function handleAddCardSubmit(evt) {
   // Prevent default form submission behavior.
   evt.preventDefault();
   
-  // Log both input values to the console.
-  console.log("Caption: ", nameInput.value);
-  console.log("Image Link: ", linkInput.value);
+   const inputValues = {
+     name: captionInputEl.value,
+     link: linkInputEl.value
+   };
+   const cardElement = getCardElement(inputValues); 
+   cardsList.prepend(cardElement);
 
   // Close the modal.
   newPostModal.classList.remove("modal_is-opened");
@@ -134,5 +137,5 @@ addCardFormElement.addEventListener('submit', handleAddCardSubmit);
 
 intialCards.forEach(function (item) {
   const cardElement = getCardElement(item); 
-cardsList.append(cardElement)
+  cardsList.append(cardElement);
 });
