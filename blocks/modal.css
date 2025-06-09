@@ -16,6 +16,10 @@
     transition: visibility 0s 0.3s, opacity 0.3s ease-in-out; /* Transition for opacity and visibility */
 }
 
+.modal_type_preview {
+    padding: 0 16px;
+}
+
 .modal_is-opened  {
     visibility: visible;
     opacity: 1;
@@ -71,10 +75,18 @@
     background: url('../images/hover-close-icon.svg')
 }
 
+.modal__close-btn_type_preview {
+    /*TODO set up correct background image */
+    top: 0;
+    right: -52.5px;
+}
+
 .modal__close-btn:hover {
     opacity: 1; /* default state */
     
 }
+
+/*TODO  set up preview close button hover state */
 
 .modal__title {
     margin: 0 0 32px;
@@ -122,6 +134,22 @@
     
 }
 
+.modal__image-container {
+    position: relative;
+}
+
+.modal__image {
+    max-width: 80vw;
+    max-height: 80vh;
+    width: 100%;
+    object-fit: contain;
+    display: block;
+    border-radius: 8px;
+}
+
+.modal__caption {
+    color: white;
+}
 
 
 @media screen and (max-width: 480px) {
@@ -129,15 +157,42 @@
         padding: 22px 12px 12px;
     }
 
+    .modal__title {
+        font-size: 20px;
+    }
+
+    .modal__close-btn {
+        top: 22px;
+        right: 12px;
+    }
+
+    .modal__form {
+        margin-top: 34px;
+    }
+
     .modal__input {
         width: 100%;
         margin-bottom: 16px;
+    }
+
+    .modal__button {
+        max-width: none;
     }
 
     .modal__submit-btn {
         width: 100%;
         margin-top: 16px;
     }
+}
+
+@media screen and (max-width: 627px) {
+.modal__close-btn_type_preview {
+    top: -48;
+    right: 0;
+}
+.modal__image {
+    max-width: unset;
+}
 }
 
   
