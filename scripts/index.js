@@ -32,7 +32,7 @@ const intialCards = [
 const editProfileBtn = document.querySelector(".profile__edit-btn");
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileCloseBtn = document.querySelector(".modal__close-btn");
-const editProfileForm = editProfileModal.querySelector(".modal__form")
+const editProfileForm = editProfileModal.querySelector(".modal__form");
 const editProfileNameInput = editProfileModal.querySelector(
     "#profile-name-input"
 );
@@ -49,43 +49,55 @@ const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
 
 const previewModal = document.querySelector("#preview-modal");
-const previewModalCloseBtn = previewModal.querySelector(".modal__close");
+const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn");
 const previewImageEl = previewModal.querySelector(".modal__image");
 // TODO - select the name element
+
+previewModalCloseBtn.addEventListener("click", () => {
+  closeModal(previewModal);
+});
 
 const cardTemplate =document.querySelector ("#card-template")
 .content.querySelector(".card");
 const cardsList = document.querySelector(".cards__list")
-
 function getCardElement(data) {
-  const cardElement = cardTemplate.cloneNode(true);
+  // 1. Change const to let for cardElement because you reassign it to null later
+  let cardElement = cardTemplate.cloneNode(true);
+  
+  // 2. Select elements inside the card
   const cardTitleEl = cardElement.querySelector(".card__title"); 
   const cardImageEl = cardElement.querySelector(".card__image");
 
-
+  // 3. Fix capitalization: use .textContent, not .TextContent
   cardImageEl.src = data.link;
   cardImageEl.alt = data.name;
-  cardTitleEl.TextContent = data.name;
+  cardTitleEl.textContent = data.name;  // <-- fix here
 
+  // 4. Like button toggle
   const cardLikeBtnEl = cardElement.querySelector(".card__like-btn");
-  cardLikeBtnEl.addEventListener("click", ()=> {
-     cardLikeBtnEl.classList.toggle("card__like-btn_active")
+  cardLikeBtnEl.addEventListener("click", () => {
+    cardLikeBtnEl.classList.toggle("card__like-btn_active");
   });
 
+  // 5. Delete button removes card and sets variable to null
   const cardDeleteBtnEl = cardElement.querySelector(".card__delete-button");
   cardDeleteBtnEl.addEventListener("click", () => {
     cardElement.remove();
-    cardElement = null;
+    cardElement = null; // OK now since cardElement is let
   });
 
+  // 6. Clicking image opens preview modal and sets preview content correctly
   cardImageEl.addEventListener("click", () => {
     previewImageEl.src = data.link;
-    //todo - set the other property values
-    openModal(previewModal)
+    previewImageEl.alt = data.name;                 // <-- set image alt attribute
+    previewModal.querySelector(".modal__caption").textContent = data.name;  // <-- set caption text
+
+    openModal(previewModal);
   });
- 
+
   return cardElement;
 }
+
 
 function openModal (modal){
   modal.classList.add("modal_is-opened");
@@ -98,43 +110,40 @@ function closeModal (modal){
 editProfileBtn.addEventListener("click", function (){
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;  
-  // editProfileModal.classList.add("modal_is-opened");
-  openModal(editProfileModal);
-});
-
-editProfileCloseBtn.addEventListener("click", function (){
-   // editProfileModal.classList.remove("modal_is-opened");
-   closeModal(editProfileModal);
-});
-
-newPostBtn.addEventListener("click", function () {
-  // newPostModal.classList.add("modal_is-opened");
-  openModal(editProfileModal);
-});
-
-newPostCloseBtn.addEventListener("click", function () {
-  // newPostModal.classList.remove("modal_is-opened");
   closeModal(editProfileModal);
+  openModal(editProfileModal);
 });
 
+// Open Edit Profile modal
+editProfileBtn.addEventListener("click", function () {
+  editProfileNameInput.value = profileNameEl.textContent;
+  editProfileDescriptionInput.value = profileDescriptionEl.textContent;  
+  openModal(editProfileModal);
+});
+
+// Open New Post modal
+newPostBtn.addEventListener("click", function () {
+  openModal(newPostModal);
+});
+
+// Universal close handler for all modal close buttons
+const closeButtons = document.querySelectorAll('.modal__close-btn');
+
+closeButtons.forEach((button) => {
+  const modal = button.closest('.modal');
+  button.addEventListener('click', () => closeModal(modal));
+});
+
+// Handle Edit Profile form submit
 function handleEditProfileSubmit(evt) {
-    evt.preventDefault();
-
-    // Update the profile name
-    profileNameEl.textContent = editProfileNameInput.value;
-
-    // Update the profile description
-    profileDescriptionEl.textContent = editProfileDescriptionInput.value;
-
-    // Close the modal after submitting
-    editProfileModal.classList.remove("modal_is-opened");
+  evt.preventDefault();
+  profileNameEl.textContent = editProfileNameInput.value;
+  profileDescriptionEl.textContent = editProfileDescriptionInput.value;
+  closeModal(editProfileModal);
 }
 
-// Attach the event listener to the form
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 
-
-// for new post
 
 
 
@@ -148,9 +157,9 @@ function handleAddCardSubmit(evt) {
   evt.preventDefault();
   
    const inputValues = {
-     name: captionInputEl.value,
-     link: linkInputEl.value
-   };
+    name: nameInput.value,    // use the correct input variable here
+    link: linkInput.value
+  };
    const cardElement = getCardElement(inputValues); 
    cardsList.prepend(cardElement);
 

@@ -1,5 +1,4 @@
-/*TODO - add correct font styles for everything  */
-
+/* Modal wrapper */
 .modal {
     padding: 0 10px;
     visibility: hidden;
@@ -13,55 +12,74 @@
     justify-content: center;
     align-items: center;
     opacity: 0;
-    transition: visibility 0s 0.3s, opacity 0.3s ease-in-out; /* Transition for opacity and visibility */
+    transition: visibility 0s 0.3s, opacity 0.3s ease-in-out;
+    font-family: 'Poppins', sans-serif;
 }
 
 .modal_type_preview {
     padding: 0 16px;
 }
 
-.modal_is-opened  {
+.modal_is-opened {
     visibility: visible;
     opacity: 1;
-    transition: visibility 0s 0s, opacity 0.3s ease-in-out; /* Smooth transition when modal is opened */
+    transition: visibility 0s 0s, opacity 0.3s ease-in-out;
 }
 
+/* Modal container */
+.modal__container {
+    position: relative;
+    width: 100%;
+    max-width: 730px;
+    height: auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 32px 50px;
+    box-sizing: border-box;
+}
 
-    .modal__container {
-        position: relative;
-        width: 100%;
-        max-width: 730px;
-        height: auto;
-        background-color: #ffffff;
-        border-radius: 8px;
-        padding: 32px 50px;
-        box-sizing: border-box;
-    }
+/* Input field */
+.modal__input {
+    display: block;
+    width: 100%;
+    padding: 16px 12px;
+    border: 1px solid rgba(33, 33, 33, 0.4);
+    border-radius: 8px;
+    font-size: 20px;
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #fff;
+    box-sizing: border-box;
+    margin: 8px 0 24px;
+    line-height: 1;
+}
 
-    .modal__input {
-        width: 100%;
-        margin-bottom: 24px;
-    }
+.modal__input::placeholder {
+    color: #2121214d;
+}
 
-    .modal__submit-btn {
-         width: 156px;
-        height: 52px; /* Figma "Hug" height */
-        border-radius: 8px;
-        padding: 18px 32px;
-        gap: 8px; /* If using Flexbox with children inside */
-        background-color: #212121;
-        color: white; /* Assuming white text on dark button */
-        border: none; /* If the design does not show borders */
-        font-size: 16px; /* Optional: adjust based on Figma typography */
-        cursor: pointer; /* Standard for buttons */
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-    }
+/* Submit button */
+.modal__submit-btn {
+    width: 156px;
+    height: 52px;
+    border-radius: 8px;
+    padding: 18px 32px;
+    gap: 8px;
+    background-color: #212121;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+}
 
+.modal__submit-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
 
-
-
+/* Close button */
 .modal__close-btn {
     opacity: 0.4;
     position: absolute;
@@ -69,25 +87,29 @@
     right: 50px;
     width: 40px;
     height: 40px;
-    border: none; /* Optional: remove border for design consistency */
-    outline: none; /* Optional: remove default outline, if desired */
+    border: none;
+    outline: none;
     cursor: pointer;
-    background: url('../images/hover-close-icon.svg')
-}
-
-.modal__close-btn_type_preview {
-    /*TODO set up correct background image */
-    top: 0;
-    right: -52.5px;
+    background: url('../images/hover-close-icon.svg');
+    background-size: cover;
 }
 
 .modal__close-btn:hover {
-    opacity: 1; /* default state */
-    
+    opacity: 1;
 }
 
-/*TODO  set up preview close button hover state */
+.modal__close-btn_type_preview {
+    top: 0;
+    right: -52.5px;
+    background: url('../images/preview-close-icon.svg');
+    background-size: cover;
+}
 
+.modal__close-btn_type_preview:hover {
+    opacity: 1;
+}
+
+/* Title */
 .modal__title {
     margin: 0 0 32px;
     font-family: 'Poppins', sans-serif;
@@ -97,6 +119,7 @@
     letter-spacing: 0;
 }
 
+/* Form */
 .modal__form {
     display: flex;
     flex-direction: column;
@@ -105,35 +128,10 @@
 .modal__label {
     margin: 0 0 32px;
     color: #212121b2;
+    font-family: 'Poppins', sans-serif;
 }
 
-
-.modal__input {
-    display: block;
-    width: 100%;
-    padding: 16px 12px;
-    border: 1px solid rgba(33, 33, 33, 0.4); /* Exact Figma color with 40% opacity */
-    border-radius: 8px;
-    font-size: 20px;
-    font-family: 'Poppins', Arial, sans-serif;
-    background-color: #fff;
-    box-sizing: border-box;
-    margin: 8px 0 0;
-    line-height: 1;
-}
-
-.modal__input::placeholder {
-    color: #2121214d;
-}
-
-
-
-/* ✅ Hover state */
-.modal__submit-btn:hover {
-    background: rgba(0, 0, 0, 0.8)
-    
-}
-
+/* Image handling */
 .modal__image-container {
     position: relative;
 }
@@ -149,9 +147,10 @@
 
 .modal__caption {
     color: white;
+    font-family: 'Poppins', sans-serif;
 }
 
-
+/* Mobile Styles */
 @media screen and (max-width: 480px) {
     .modal__container {
         padding: 22px 12px 12px;
@@ -171,7 +170,6 @@
     }
 
     .modal__input {
-        width: 100%;
         margin-bottom: 16px;
     }
 
@@ -186,14 +184,12 @@
 }
 
 @media screen and (max-width: 627px) {
-.modal__close-btn_type_preview {
-    top: -48;
-    right: 0;
-}
-.modal__image {
-    max-width: unset;
-}
-}
+    .modal__close-btn_type_preview {
+        top: -48px;
+        right: 0;
+    }
 
-  
- 
+    .modal__image {
+        max-width: unset;
+    }
+}
