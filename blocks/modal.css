@@ -103,6 +103,10 @@
     right: -52.5px;
     background: url('../images/preview-close-icon.svg');
     background-size: cover;
+    position: absolute; /* make sure position is set */
+     top: 0;
+     right: -52.5px;
+     z-index: 10;
 }
 
 .modal__close-btn_type_preview:hover {
@@ -147,7 +151,12 @@
 
 .modal__caption {
     color: white;
-    font-family: 'Poppins', sans-serif;
+   font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  background-color: #333; /* replace with your Figma design's color if different */
+  border-radius: 12px; /* adjust based on Figma specs */
+  padding: 12px 16px;
+  display: inline-block;
 }
 
 /* Mobile Styles */
