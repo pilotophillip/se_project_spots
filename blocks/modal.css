@@ -1,205 +1,203 @@
 /* Modal wrapper */
 .modal {
-    padding: 0 10px;
-    visibility: hidden;
-    background-color: #00000080;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: visibility 0s 0.3s, opacity 0.3s ease-in-out;
-    font-family: 'Poppins', sans-serif;
+  padding: 0 10px;
+  visibility: hidden;
+  background-color: #00000080;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: visibility 0s 0.3s, opacity 0.3s ease-in-out;
+  font-family: "Poppins", sans-serif;
 }
 
 .modal_type_preview {
-    padding: 0 16px;
+  padding: 0 16px;
 }
 
 .modal_is-opened {
-    visibility: visible;
-    opacity: 1;
-    transition: visibility 0s 0s, opacity 0.3s ease-in-out;
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s 0s, opacity 0.3s ease-in-out;
 }
 
 /* Modal container */
 .modal__container {
-    position: relative;
-    width: 100%;
-    max-width: 730px;
-    height: auto;
-    background-color: #ffffff;
-    border-radius: 8px;
-    padding: 32px 50px;
-    box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  max-width: 730px;
+  height: auto;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 32px 50px;
+  box-sizing: border-box;
 }
 
 /* Input field */
 .modal__input {
-    display: block;
-    width: 100%;
-    padding: 16px 12px;
-    border: 1px solid rgba(33, 33, 33, 0.4);
-    border-radius: 8px;
-    font-size: 20px;
-    font-family: 'Poppins', Arial, sans-serif;
-    background-color: #fff;
-    box-sizing: border-box;
-    margin: 8px 0 24px;
-    line-height: 1;
+  display: block;
+  width: 100%;
+  padding: 16px 12px;
+  border: 1px solid rgba(33, 33, 33, 0.4);
+  border-radius: 8px;
+  font-size: 20px;
+  font-family: "Poppins", Arial, sans-serif;
+  background-color: #fff;
+  box-sizing: border-box;
+  margin: 8px 0 24px;
+  line-height: 1;
 }
 
 .modal__input::placeholder {
-    color: #2121214d;
+  color: #2121214d;
 }
 
 /* Submit button */
 .modal__submit-btn {
-    width: 156px;
-    height: 52px;
-    border-radius: 8px;
-    padding: 18px 32px;
-    gap: 8px;
-    background-color: #212121;
-    color: white;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Poppins', sans-serif;
+  width: 156px;
+  height: 52px;
+  border-radius: 8px;
+  padding: 18px 32px;
+  gap: 8px;
+  background-color: #212121;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
 }
 
 .modal__submit-btn:hover {
-    background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.8);
 }
 
 /* Close button */
 .modal__close-btn {
-    opacity: 0.4;
-    position: absolute;
-    top: 32px;
-    right: 50px;
-    width: 40px;
-    height: 40px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    background: url('../images/hover-close-icon.svg');
-    background-size: cover;
+  opacity: 0.4;
+  position: absolute;
+  top: 5px;
+  right: -50px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: url("../images/hover-close-icon.svg");
+  background-size: cover;
 }
 
 .modal__close-btn:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 .modal__close-btn_type_preview {
-    top: 0;
-    right: -52.5px;
-    background: url('../images/preview-close-icon.svg');
-    background-size: cover;
-    position: absolute; /* make sure position is set */
-    top: 0;
-    right: -52.5px;
-    z-index: 10;
+  top: 0;
+  right: -52.5px;
+  background: url("../images/preview-close-icon.svg");
+  background-size: cover;
+  position: absolute; /* make sure position is set */
+  z-index: 10;
 }
 
 .modal__close-btn_type_preview:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 /* Title */
 .modal__title {
-    margin: 0 0 32px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    font-size: 32px;
-    line-height: 100%;
-    letter-spacing: 0;
+  margin: 0 0 32px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 100%;
+  letter-spacing: 0;
 }
 
 /* Form */
 .modal__form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .modal__label {
-    margin: 0 0 32px;
-    color: #212121b2;
-    font-family: 'Poppins', sans-serif;
+  margin: 0 0 32px;
+  color: #212121b2;
+  font-family: "Poppins", sans-serif;
 }
 
 /* Image handling */
 .modal__image-container {
-    position: relative;
+  position: relative;
 }
 
 .modal__image {
-    max-width: 80vw;
-    max-height: 80vh;
-    width: 100%;
-    object-fit: contain;
-    display: block;
-    border-radius: 8px;
+  max-width: 80vw;
+  max-height: 80vh;
+  width: 100%;
+  object-fit: contain;
+  display: block;
+  border-radius: 8px;
 }
 
 .modal__caption {
-    color: white;
-    font-family: 'Poppins', Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    background-color: #212121; 
-    border-radius: 8px; 
-    padding: 4px 8px;
-    display: inline-block;
-    padding: 8px 0;
+  color: white;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  background-color: #212121;
+  border-radius: 8px;
+  padding: 4px 8px;
+  display: inline-block;
+  padding: 8px 0;
 }
 
 /* Mobile Styles */
 @media screen and (max-width: 480px) {
-    .modal__container {
-        padding: 22px 12px 12px;
-    }
+  .modal__container {
+    padding: 22px 12px 12px;
+  }
 
-    .modal__title {
-        font-size: 20px;
-    }
+  .modal__title {
+    font-size: 20px;
+  }
 
-    .modal__close-btn {
-        top: 22px;
-        right: 12px;
-    }
+  .modal__close-btn {
+    top: 22px;
+    right: 12px;
+  }
 
-    .modal__form {
-        margin-top: 34px;
-    }
+  .modal__form {
+    margin-top: 34px;
+  }
 
-    .modal__input {
-        margin-bottom: 16px;
-    }
+  .modal__input {
+    margin-bottom: 16px;
+  }
 
-    .modal__button {
-        max-width: none;
-    }
+  .modal__button {
+    max-width: none;
+  }
 
-    .modal__submit-btn {
-        width: 100%;
-        margin-top: 16px;
-    }
+  .modal__submit-btn {
+    width: 100%;
+    margin-top: 16px;
+  }
 }
 
 @media screen and (max-width: 627px) {
-    .modal__close-btn_type_preview {
-        top: -48px;
-        right: 0;
-    }
+  .modal__close-btn_type_preview {
+    top: -48px;
+    right: 0;
+  }
 
-    .modal__image {
-        max-width: unset;
-    }
+  .modal__image {
+    max-width: unset;
+  }
 }
