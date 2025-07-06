@@ -83,8 +83,8 @@
 .modal__close-btn {
   opacity: 0.4;
   position: absolute;
-  top: 5px;
-  right: -50px;
+  top: 32px;
+  right: 50px;
   width: 40px;
   height: 40px;
   border: none;
@@ -99,8 +99,8 @@
 }
 
 .modal__close-btn_type_preview {
-  top: 0;
-  right: -52.5px;
+  top: 5px;
+  right: -50px;
   background: url("../images/preview-close-icon.svg");
   background-size: cover;
   position: absolute; /* make sure position is set */
@@ -160,6 +160,9 @@
 
 /* Mobile Styles */
 @media screen and (max-width: 480px) {
+  .modal__caption {
+    font-size: 16px; /* corrected for mobile screens */
+  }
   .modal__container {
     padding: 22px 12px 12px;
   }
