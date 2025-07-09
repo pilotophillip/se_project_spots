@@ -67,7 +67,7 @@
                 maxlength="40"
                 required
               />
-              <span class="modal__error"></span>
+              <span id="profile-name-input-error" class="modal__error"></span>
             </label>
 
             <label for="profile-description-input" class="modal__label">
@@ -81,7 +81,10 @@
                 maxlength="200"
                 required
               />
-              <span class="modal__error"></span>
+              <span
+                id="profile-description-input-error"
+                class="modal__error"
+              ></span>
             </label>
 
             <button type="submit" class="modal__submit-btn">Save</button>
@@ -107,7 +110,7 @@
                 name="description"
                 required
               />
-              <span class="modal__error"></span>
+              <span id="new-card-image-input-error" class="modal__error"></span>
             </label>
             <label for="profile-caption-input" class="modal__label">
               Caption
@@ -120,7 +123,10 @@
                 maxlength="30"
                 required
               />
-              <span class="modal__error"></span>
+              <span
+                id="profile-caption-input-error"
+                class="modal__error"
+              ></span>
             </label>
             <button
               type="submit"
@@ -144,6 +150,7 @@
         </div>
       </div>
     </div>
-    <script src="./scripts/index.js"></script>
+    <script defer src="./scripts/validation.js"></script>
+    <script defer src="./scripts/index.js"></script>
   </body>
 </html>
