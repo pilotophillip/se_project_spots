@@ -71,12 +71,6 @@ function closeModal(modal) {
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
-  //optional
-  resetValidation(editProfileForm, [
-    editProfileNameInput,
-    editProfileDescriptionInput,
-  ]);
-
   openModal(editProfileModal);
 });
 
@@ -95,11 +89,8 @@ closeButtons.forEach((button) => {
 // Handle Edit Profile form submit
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
-  const values = { name: captionInput.value, link: linkInput.value };
-  const cardEl = getCardElement(values);
-  cardsList.prepend(cardEl);
-  evt.target.reset();
-  disableButton(cardSubmitBtn, settings);
+  profileNameEl.textContent = editProfileNameInput.value;
+  profileDescriptionEl.textContent = editProfileDescriptionInput.value;
   closeModal(editProfileModal);
 }
 
@@ -158,8 +149,6 @@ function handleAddCardSubmit(evt) {
 
   // Clear form inputs after adding card
   addCardFormElement.reset();
-
-  disableButton();
 
   // Close the modal using the shared function
   closeModal(newPostModal);
