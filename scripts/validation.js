@@ -18,6 +18,23 @@ const checkInputValidity = (formEl, inputEl) => {
   }
 };
 
+const hasInvalidInput = (inputList) => {
+  inputList.some((input) => {
+    return !input.validity.valid;
+  });
+};
+
+const toggleButtonState = (inputList, buttonEl) => {
+  if (hasInvalidInput(inputList)) {
+    buttonEl.disabled = true;
+    //add a modifier class to the buttonEl to make it grey
+    // Dont forget the CSS
+  } else {
+    buttonEl.disabled = false;
+    //remove the disabled class
+  }
+};
+
 const setEventListener = (formEl) => {
   const inputList = Array.from(formEl.querySelectorAll(".modal__input"));
   const buttonElement = formEl.querySelector(".modal__button");
@@ -28,7 +45,7 @@ const setEventListener = (formEl) => {
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
       checkInputValidity(formEl, inputElement);
-      // toggleButtonState(inputList, buttonElement);
+      toggleButtonState(inputList, buttonElement);
     });
   });
 };
