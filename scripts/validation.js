@@ -1,3 +1,12 @@
+const settings = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error",
+};
+
 const showInputError = (formEl, inputEl, errorMsg) => {
   const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
   errorMsgEl.textContent = errorMsg;
@@ -11,59 +20,60 @@ const hideInputError = (formEl, inputEl) => {
 };
 
 const checkInputValidity = (formEl, inputEl) => {
-  if (!inputElement.validity.valid) {
-    showInputError(formEl, inputEl, inputElement.validationMessage);
+  if (!inputEl.validity.valid) {
+    showInputError(formEl, inputEl, inputEl.validationMessage);
   } else {
-    hideInputError(formEl, InputEl);
+    hideInputError(formEl, inputEl);
   }
 };
 
 const hasInvalidInput = (inputList) => {
-  inputList.some((input) => {
-    return !input.validity.valid;
-  });
+  return inputList.some((input) => !input.validity.valid);
 };
 
 const toggleButtonState = (inputList, buttonEl) => {
   if (hasInvalidInput(inputList)) {
-    disabledButton(buttonEl);
+    disableButton(buttonEl);
   } else {
     buttonEl.disabled = false;
     //remove the disabled class
   }
 };
 
-const disableButton = (buttonEL) => {
+const disableButton = (buttonEl, config) => {
   buttonEl.disabled = true;
+
   //add a modifier class to the buttonEl to make it grey
   // Dont forget the CSS
 };
 
-const resetValidation = (formEl, inputlist) => {
-  inputlist.forEach((input) => {
-    hideInputError(formEl, input);
-  });
+const resetValidation = (formEl, inputList) => {
+  inputList.forEach((inputEl) => hideInputError(formEl, inputEl));
+  const buttonEl = formEl.querySelector(".modal__submit-btn");
+  toggleButtonState(inputList, buttonEl);
 };
 
-const setEventListener = (formEl) => {
-  const inputList = Array.from(formEl.querySelectorAll(".modal__input"));
-  const buttonElement = formEl.querySelector(".modal__button");
+//TODO- USE ALL SETTING OBJCT IN ALL FUNCTIONS INSTEAD OF hard-coded strings
 
-  toggleButtonState(inputList, buttonElement);
+const setEventListener = (formEl, config) => {
+  const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
+  const buttonElement = formEl.querySelector(config.submitButtonSelector);
+
+  toggleButtonState(inputList, buttonElement, config);
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
-      checkInputValidity(formEl, inputElement);
-      toggleButtonState(inputList, buttonElement);
+      checkInputValidity(formEl, inputElement, config);
+      toggleButtonState(inputList, buttonElement, config);
     });
   });
 };
 
-const enableValidation = () => {
-  const formList = document.querySelectorAll(".modal__form");
+const enableValidation = (config) => {
+  const formList = document.querySelectorAll(config.formSelector);
   formList.forEach((formEl) => {
-    setEventListener(formEl);
+    setEventListener(formEl, config);
   });
 };
 
-enableValidation();
+enableValidation(settings);
