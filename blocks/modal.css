@@ -49,12 +49,17 @@
   font-family: "Poppins", Arial, sans-serif;
   background-color: #fff;
   box-sizing: border-box;
-  margin: 8px 0 24px;
+  margin: 8px 0 0px;
   line-height: 1;
 }
 
 .modal__input::placeholder {
   color: #2121214d;
+}
+
+.modal__error {
+  display: block;
+  margin-top: 8px;
 }
 
 /* Submit button */
@@ -131,6 +136,8 @@
   margin: 0 0 32px;
   color: #212121b2;
   font-family: "Poppins", sans-serif;
+  margin-bottom: 32px;
+  display: block;
 }
 
 /* Image handling */
