@@ -120,6 +120,11 @@
   opacity: 1;
 }
 
+.modal__submit-btn_disabled {
+  background-color: #b0b0b0; /* light gray background */
+  color: #6b6b6b; /* darker gray text */
+}
+
 /* Title */
 .modal__title {
   margin: 0 0 32px;
