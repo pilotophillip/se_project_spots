@@ -140,13 +140,7 @@ editProfileBtn.addEventListener("click", () => {
 });
 
 newPostBtn.addEventListener("click", () => {
-  const form = newPostModal.querySelector(".modal__form");
-  form.reset();
-  resetValidation(
-    form,
-    Array.from(form.querySelectorAll(settings.inputSelector)),
-    settings
-  );
+  // ✅ DO NOT reset form or validation state on open
   openModal(newPostModal);
 });
 
@@ -186,9 +180,7 @@ function handleAddCardSubmit(evt) {
   addCardFormElement.reset();
 
   // Disable submit button after resetting the form
-  disableButton(
-    addCardFormElement.querySelector(settings.submitButtonSelector)
-  );
+  disableButton(evt.submitter, settings);
 
   // Close the modal
   closeModal(newPostModal);
