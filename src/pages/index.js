@@ -1,5 +1,6 @@
-import "../index.css";
-import { enableValidation, settings } from "./validation.js";
+import "../pages/index.css";
+import { enableValidation, settings } from "../scripts/validation.js";
+import Api from "../scripts/Api.js";
 
 const initialCards = [
   {
@@ -31,6 +32,21 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
   },
 ];
+
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "d20ffb61-63a0-420d-b40b-e34b0dd064f3",
+    "Content-Type": "application/json",
+  },
+});
+
+api.getInitialCards().then((cards) => {
+  console.log(cards); // Load initial cards using universal renderCard
+  cards.forEach(function (item) {
+    renderCard(item, "append");
+  });
+});
 
 // Profile modal elements
 const editProfileBtn = document.querySelector(".profile__edit-btn");
@@ -190,10 +206,5 @@ function handleAddCardSubmit(evt) {
 }
 
 addCardFormElement.addEventListener("submit", handleAddCardSubmit);
-
-// Load initial cards using universal renderCard
-initialCards.forEach(function (item) {
-  renderCard(item, "append");
-});
 
 enableValidation(settings);
