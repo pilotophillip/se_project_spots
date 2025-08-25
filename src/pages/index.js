@@ -41,6 +41,7 @@ const api = new Api({
   },
 });
 
+//Destructure the second item in the callback of the .then() (Tripleten)
 api
   .getAppInfo()
   .then((cards) => {
@@ -48,6 +49,10 @@ api
     cards.forEach(function (item) {
       renderCard(item, "append");
     });
+
+    //Handle the user information
+    // -set the src of the avatar image
+    // -set the textContent of both the text elements
   })
   .catch(console.error);
 
@@ -176,9 +181,18 @@ closeButtons.forEach((button) => {
 // Handle Edit Profile form submit
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
-  profileNameEl.textContent = editProfileNameInput.value;
-  profileDescriptionEl.textContent = editProfileDescriptionInput.value;
-  closeModal(editProfileModal);
+  api
+    .editUserInfo({
+      name: editProfileNameInput.value,
+      about: editProfileDescriptionInput.value,
+    })
+    .then((data) => {
+      // use data argument instead of the input values (tripleten)
+      profileNameEl.textContent = editProfileNameInput.value;
+      profileDescriptionEl.textContent = editProfileDescriptionInput.value;
+      closeModal(editProfileModal);
+    })
+    .catch(console.error);
 }
 
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
