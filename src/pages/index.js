@@ -1,6 +1,6 @@
 import "../pages/index.css";
 import { enableValidation, settings } from "../scripts/validation.js";
-import Api from "../scripts/Api.js";
+import Api from "../utils/Api.js";
 
 const initialCards = [
   {
@@ -41,12 +41,15 @@ const api = new Api({
   },
 });
 
-api.getInitialCards().then((cards) => {
-  console.log(cards); // Load initial cards using universal renderCard
-  cards.forEach(function (item) {
-    renderCard(item, "append");
-  });
-});
+api
+  .getInitialCards()
+  .then((cards) => {
+    console.log(cards); // Load initial cards using universal renderCard
+    cards.forEach(function (item) {
+      renderCard(item, "append");
+    });
+  })
+  .catch(console.error);
 
 // Profile modal elements
 const editProfileBtn = document.querySelector(".profile__edit-btn");
