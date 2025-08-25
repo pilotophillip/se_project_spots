@@ -42,9 +42,9 @@ const api = new Api({
 });
 
 api
-  .getInitialCards()
+  .getAppInfo()
   .then((cards) => {
-    console.log(cards); // Load initial cards using universal renderCard
+    console.log(cards);
     cards.forEach(function (item) {
       renderCard(item, "append");
     });
