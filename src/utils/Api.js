@@ -22,6 +22,8 @@ class Api {
     });
   }
 
+  //TODO TRIPLE TEN - implement Post / cards
+
   editUserInfo({ name, about }) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
@@ -47,6 +49,19 @@ class Api {
       body: JSON.stringify({
         avatar,
       }),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      Promise.reject(`Error: ${res.status}`);
+    });
+  }
+
+  deleteCard(id) {
+    return fetch(`${this._baseUrl}/cards/${id}`, {
+      method: "DELETE",
+      headers: this._headers,
+      // Send the data in the body as a JSON string.
     }).then((res) => {
       if (res.ok) {
         return res.json();
