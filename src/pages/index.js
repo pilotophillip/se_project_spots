@@ -73,6 +73,7 @@ const profileDescriptionEl = document.querySelector(".profile__description");
 // New post modal elements
 const newPostBtn = document.querySelector(".profile__add-btn");
 const newPostModal = document.querySelector("#new-post-modal");
+const avatarModal = document.querySelector(".profile__avatar-btn");
 
 // Preview modal elements
 const previewModal = document.querySelector("#preview-modal");
@@ -222,6 +223,31 @@ function handleAddCardSubmit(evt) {
   closeModal(newPostModal);
 }
 
+//todo tripleten -finish avatar submission handle
+function handleAvatarSubmit(evt) {
+  //prevent default behaivor
+  console.log(avatarInput.value);
+  api
+    .editAvatarInfo()
+    .then((data) => {
+      console.log(data.avatar);
+      //todo tripleten- make this work
+    })
+    .catch(console.error);
+}
+
 addCardFormElement.addEventListener("submit", handleAddCardSubmit);
+
+//avatar form element
+const avatarModalBtn = document.querySelector("avatar-modal");
+const avatarForm = avatarModal.querySelector(".modal__form");
+const avatarSubmitBtn = avatarModal.querySelector(".modal__button");
+const avatarModalCloseBtn = avatarModal.querySelector(".modal__close");
+const avatarInput = avatarModal.querySelector("#profile-avatar-input");
+
+avatarModalBtn.addEventListener("click", () => {
+  openModal(avatarModal);
+});
+avatarForm.addEventListener("submit", handleAvatarSubmit);
 
 enableValidation(settings);
