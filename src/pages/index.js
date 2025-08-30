@@ -138,11 +138,15 @@ function getCardElement(data) {
   cardImageEl.alt = data.name;
   cardTitleEl.textContent = data.name;
 
-  // Like button toggle
   const cardLikeBtnEl = cardElement.querySelector(".card__like-btn");
-  cardLikeBtnEl.addEventListener("click", () => {
-    cardLikeBtnEl.classList.toggle("card__like-btn_active");
+
+  cardLikeBtnEl.addEventListener("click", (evt) => {
+    handleLike(evt, data._id);
   });
+
+  function handleLike(evt, id) {
+    evt.target.classList.toggle("card__like-btn_active");
+  }
 
   // Delete card
   const cardDeleteBtnEl = cardElement.querySelector(".card__delete-button");
