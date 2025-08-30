@@ -245,6 +245,9 @@ const avatarSubmitBtn = avatarModal.querySelector(".modal__button");
 const avatarModalCloseBtn = avatarModal.querySelector(".modal__close");
 const avatarInput = avatarModal.querySelector("#profile-avatar-input");
 
+//delete form elemnts
+const deleteModal = document.querySelector("#delete-modal");
+
 avatarModalBtn.addEventListener("click", () => {
   openModal(avatarModal);
 });
