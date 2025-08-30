@@ -1,5 +1,6 @@
 import "../pages/index.css";
 import { enableValidation, settings } from "../scripts/validation.js";
+import { setButtonText } from "../utils/helpers.js";
 import Api from "../utils/Api.js";
 
 const initialCards = [
@@ -193,6 +194,12 @@ closeButtons.forEach((button) => {
 // Handle Edit Profile form submit
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
+
+  // Change button text to "Saving..."
+  const submitBtn = evt.submitter;
+  // submitBtn.textContent = "Saving...";
+  setButtonText(submitBtn, true);
+
   api
     .editUserInfo({
       name: editProfileNameInput.value,
@@ -200,12 +207,18 @@ function handleEditProfileSubmit(evt) {
     })
     .then((data) => {
       // use data argument instead of the input values (tripleten)
-      profileNameEl.textContent = editProfileNameInput.value;
-      profileDescriptionEl.textContent = editProfileDescriptionInput.value;
+      profileNameEl.textContent = data.name;
+      profileDescriptionEl.textContent = data.about;
       closeModal(editProfileModal);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      //call setButtonText instead
+      submitBtn.textContent = "Save";
+    });
 }
+
+//todo - implement loading texy for all other form submission
 
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 
