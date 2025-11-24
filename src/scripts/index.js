@@ -104,6 +104,12 @@ function init() {
     if (evt.target.classList.contains("modal")) closeModal(evt.target);
   }
 
+  // ✅ close icons for ALL modals
+  document.querySelectorAll(".modal__close-btn").forEach((button) => {
+    const modal = button.closest(".modal");
+    button.addEventListener("click", () => closeModal(modal));
+  });
+
   /* ---------- Create card ---------- */
   function getCardElement(data) {
     if (!cardTemplate) return document.createTextNode("");
@@ -119,9 +125,10 @@ function init() {
     cardImageEl.alt = data.name;
     cardTitleEl.textContent = data.name;
 
-    // LIKE BUTTON
-    const isLiked = data.likes?.some((u) => u._id === currentUserId);
-    if (isLiked) cardLikeBtnEl.classList.add("card__like-btn_active");
+    // ✅ LIKE BUTTON — use data.isLiked instead of data.likes
+    if (data.isLiked) {
+      cardLikeBtnEl.classList.add("card__like-btn_active");
+    }
 
     cardLikeBtnEl.addEventListener("click", () => {
       const isCurrentlyLiked = cardLikeBtnEl.classList.contains(
@@ -131,10 +138,11 @@ function init() {
       api
         .changedLikeStatus(data._id, isCurrentlyLiked)
         .then((updatedCard) => {
-          const likedNow = updatedCard.likes.some(
-            (u) => u._id === currentUserId
+          // server tells us the new state via updatedCard.isLiked
+          cardLikeBtnEl.classList.toggle(
+            "card__like-btn_active",
+            updatedCard.isLiked
           );
-          cardLikeBtnEl.classList.toggle("card__like-btn_active", likedNow);
         })
         .catch(console.error);
     });

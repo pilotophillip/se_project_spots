@@ -89,6 +89,11 @@
   background: rgba(0, 0, 0, 0.8);
 }
 
+.modal__submit-btn_disabled {
+  background-color: #b0b0b0; /* light gray background */
+  color: #6b6b6b; /* darker gray text */
+}
+
 /* Close button */
 .modal__close-btn {
   opacity: 0.4;
@@ -113,17 +118,12 @@
   right: -50px;
   background: url("../images/preview-close-icon.svg");
   background-size: cover;
-  position: absolute; /* make sure position is set */
+  position: absolute;
   z-index: 10;
 }
 
 .modal__close-btn_type_preview:hover {
   opacity: 1;
-}
-
-.modal__submit-btn_disabled {
-  background-color: #b0b0b0; /* light gray background */
-  color: #6b6b6b; /* darker gray text */
 }
 
 /* Title */
@@ -175,11 +175,35 @@
   padding: 8px 0;
 }
 
+/* ---------- DELETE MODAL SPECIFIC STYLES ---------- */
+
+#delete-modal .modal__container {
+  max-width: 430px;
+  padding: 32px 32px 28px;
+  text-align: center;
+}
+
+#delete-modal .modal__title {
+  margin-bottom: 24px;
+}
+
+#delete-modal .modal__form {
+  flex-direction: row;
+  justify-content: center;
+  gap: 12px;
+  margin: 0;
+}
+
+#delete-modal .modal__submit-btn {
+  width: 100%;
+}
+
 /* Mobile Styles */
 @media screen and (max-width: 480px) {
   .modal__caption {
-    font-size: 16px; /* corrected for mobile screens */
+    font-size: 16px;
   }
+
   .modal__container {
     padding: 22px 12px 12px;
   }
@@ -208,6 +232,16 @@
   .modal__submit-btn {
     width: 100%;
     margin-top: 16px;
+  }
+
+  /* Delete modal on mobile: buttons stacked */
+  #delete-modal .modal__form {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  #delete-modal .modal__submit-btn {
+    margin-top: 0;
   }
 }
 
