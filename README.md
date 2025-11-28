@@ -1,36 +1,42 @@
 # Project 3: Spots
 
-### Description
-Todo - Describe the project and its functionality
-Summary Video:
-[[Youtube Video](https://youtu.be/ZzR6IwoB9Uc)]
+## Description
+Spots is a responsive photo-sharing webpage built from a Figma design. The goal of this project was to practice real-world front-end workflows — translating a mockup into code, building adaptive layouts, and keeping styling consistent across screen sizes.
 
-### Tech Stack
-*HTML
-*CSS
-*Responsive Design
+## Summary Video
+[YouTube Overview](https://youtu.be/ZzR6IwoB9Uc)
 
-### Deployment
-This webpage is deployed to GitHub Pages
-- [Deployment Link](https://pilotophillip.github.io/se_project_spots/)
+## Tech Stack
+- HTML  
+- CSS  
+- Responsive Design
 
+## Deployment
+This project is deployed on GitHub Pages:  
+**Live Site:** https://pilotophillip.github.io/se_project_spots/
 
-### Overview  Spots
+---
 
-* Intro  
-* Figma  
-* Images  
-  
-**Intro**
-  
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.  
-  
-**Figma**  
-  
-* [Link to the project on Figma](https://www.figma.com/file/BBNm2bC3lj8QQMHlnqRsga/Sprint-3-Project-%E2%80%94-Spots?type=design&node-id=2%3A60&mode=design&t=afgNFybdorZO6cQo-1)
-  
-**Images**  
-  
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
-  
-Good luck and have fun!
+## Overview
+
+### Intro
+Spots focuses on clean layout structure and responsiveness. I recreated the page from the provided Figma design, ensuring all elements — text, images, and the card grid — adapt smoothly to different device widths.  
+The main goal was gaining experience working directly from a design file while maintaining accuracy and accessibility.
+
+### Figma
+Design file used for the project:  
+https://www.figma.com/file/BBNm2bC3lj8QQMHlnqRsga/Sprint-3-Project-%E2%80%94-Spots?type=design&node-id=2%3A60&mode=design&t=afgNFybdorZO6cQo-1
+
+### Images
+All images were exported directly from Figma.  
+Before adding them to the project, I optimized them using TinyPNG to improve page load performance:  
+https://tinypng.com/
+
+---
+
+## Notes
+This project helped strengthen:
+- Responsive layout skills  
+- Working directly from a Figma design  
+- Attention to spacing and alignment  
+- Organizing clean, readable CSS
