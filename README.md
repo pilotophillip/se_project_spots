@@ -11,11 +11,6 @@ Spots is a responsive photo-sharing webpage built from a Figma design. The goal 
 - CSS  
 - Responsive Design
 
-## Deployment
-This project is deployed on GitHub Pages:  
-**Live Site:** https://pilotophillip.github.io/se_project_spots/
-
----
 
 ## Overview
 
